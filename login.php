@@ -5,15 +5,23 @@ session_start();
 
 if(isset($_POST['submit'])){
 
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
+   $email = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['email']), ENT_QUOTES, 'UTF-8');
+   $pass = htmlspecialchars(mysqli_real_escape_string($conn, md5($_POST['password'])), ENT_QUOTES, 'UTF-8');
 
-   $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass'") or die('query failed');
+   $stmt = mysqli_prepare($conn, "SELECT * FROM `user_form` WHERE email = ? AND password = ?");
+   mysqli_stmt_bind_param($stmt, 'ss', $email, $pass);
+   mysqli_stmt_execute($stmt);
+   $select = mysqli_stmt_get_result($stmt);
 
    if(mysqli_num_rows($select) > 0){
       $row = mysqli_fetch_assoc($select);
       $_SESSION['user_id'] = $row['id'];
-      header('location:home.php');
+      if ($row['user_type'] == 'user'){
+         header('location:index.php');
+      }
+      else{ // admin header
+         header('location:admin-panel.php');
+      }
    }else{
       $message[] = 'incorrect email or password!';
    }

@@ -138,13 +138,6 @@
    border-radius: 5px;
 }
 
-.container .profile img{
-   height: 150px;
-   width: 150px;
-   border-radius: 50%;
-   object-fit: cover;
-   margin-bottom: 5px;
-}
 
 .container .profile h3{
    margin:5px 0;

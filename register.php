@@ -4,12 +4,16 @@ include 'config.php';
 
 if(isset($_POST['submit'])){
 
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
-   $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
+   $name = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['name']), ENT_QUOTES, 'UTF-8');
+   $email = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['email']), ENT_QUOTES, 'UTF-8');
+   $pass = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['password']), ENT_QUOTES, 'UTF-8');
+   $cpass = htmlspecialchars(mysqli_real_escape_string($conn, $_POST['cpassword']), ENT_QUOTES, 'UTF-8');
 
-   $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' OR name = '$name'") or die('query failed');
+
+   $stmt = mysqli_prepare($conn, "SELECT * FROM `user_form` WHERE email = ? OR name = ?");
+   mysqli_stmt_bind_param($stmt, 'ss', $email, $name);
+   mysqli_stmt_execute($stmt);
+   $select = mysqli_stmt_get_result($stmt);
 
    if (mysqli_num_rows($select) > 0) {
       $message[] = 'User or email already exists';
@@ -17,7 +21,7 @@ if(isset($_POST['submit'])){
       if ($pass != $cpass) {
         $message[] = 'Confirm password not matched!';
       }else{
-        $insert = mysqli_query($conn, "INSERT INTO `user_form` (name, email, password) VALUES ('$name', '$email', '$pass')") or die('query failed');
+        $insert = mysqli_query($conn, "INSERT INTO `user_form` (name, email, password, user_type) VALUES ('$name', '$email', '$pass', 'user')") or die('query failed');
 
         if ($insert) {
             $message[] = 'Registered successfully!';
