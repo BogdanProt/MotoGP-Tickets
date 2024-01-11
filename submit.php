@@ -1,12 +1,12 @@
 <?php
 ob_start();
 
-$siteKey = '6Lf8FC8pAAAAAHvKztxI1vMKNLIOPy03zyrlv303';
-$secretKey = '6Lf8FC8pAAAAACQ4ncwx-Fx-2gt9_l6fW1P3_jDL';
+$siteKey = 'HIDDEN';
+$secretKey = 'HIDDEN';
 
-$toEmail = 'kepspb@yahoo.com';
+$toEmail = 'HIDDEN';
 $fromName = 'MotoGP Tickets';
-$formEmail = 'keps_bp@yahoo.com';
+$formEmail = 'HIDDEN';
 
 $postData = $statusMsg = $valErr = '';
 $status = 'error';
