@@ -57,3 +57,34 @@
   background-color: #04AA6D;
   color: white;
 }
+
+body{
+  background-color: #24252A;
+  color: white;
+}
+
+.race-box {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+form {
+  margin-top: 10px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #04AA6D;
+}

@@ -23,16 +23,14 @@ if(isset($_GET['logout'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Home</title>
-
-    <link rel="stylesheet" href="style-register.css">
-    <link rel="stylesheet" href="style-index.css">
+    <link rel="stylesheet" href="style-admin-profile.css">
 
 </head>
 <body>
    
 <div class="topnav">
   <a href="admin-panel.php">Dashboard</a>
-  <a class="active" href="admin-profile.php">Profile</a>
+  <a href="admin-profile.php" class="style-link-active">Profile</a>
 </div>
 
 <div class="container">

@@ -1,12 +1,12 @@
 <?php
 ob_start();
 
-$siteKey = 'CENSORES';
-$secretKey = 'CENSORED';
+$siteKey = '6Lf8FC8pAAAAAHvKztxI1vMKNLIOPy03zyrlv303';
+$secretKey = '6Lf8FC8pAAAAACQ4ncwx-Fx-2gt9_l6fW1P3_jDL';
 
-$toEmail = 'CENSORED';
+$toEmail = 'kepspb@yahoo.com';
 $fromName = 'MotoGP Tickets';
-$formEmail = 'CENSORED';
+$formEmail = 'keps_bp@yahoo.com';
 
 $postData = $statusMsg = $valErr = '';
 $status = 'error';

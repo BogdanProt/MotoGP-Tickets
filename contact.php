@@ -24,7 +24,7 @@ if(isset($_GET['logout'])){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us</title>
-  <link rel="stylesheet" href="style-index.css">
+  <link rel="stylesheet" href="style-home.css">
   <link rel="stylesheet" href="style-contact.css">
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -35,7 +35,7 @@ if(isset($_GET['logout'])){
   <a href="index.php">Home</a>
   <a class = "active" href="contact.php">Contact</a>
   <a href="upcoming-races.php">Upcoming Races</a>
-  <a href="profile.php">Profile</a>
+  <a href="profile.php" class="style-link">Profile</a>
 </div>
 
 <div class="container">

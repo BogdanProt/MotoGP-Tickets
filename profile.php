@@ -23,9 +23,7 @@ if(isset($_GET['logout'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Home</title>
-
-    <link rel="stylesheet" href="style-register.css">
-    <link rel="stylesheet" href="style-index.css">
+    <link rel="stylesheet" href="style-profile.css">
 
 </head>
 <body>
@@ -34,7 +32,7 @@ if(isset($_GET['logout'])){
   <a href="index.php">Home</a>
   <a href="contact.php">Contact</a>
   <a href="upcoming-races.php">Upcoming Races</a>
-  <a class="active" href="profile.php">Profile</a>
+  <a class="style-link-active" href="profile.php">Profile</a>
 </div>
 
 <div class="container">

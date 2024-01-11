@@ -21,14 +21,14 @@ if(isset($_GET['logout'])){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="style-index.css">
+  <link rel="stylesheet" href="style-home.css">
 </head>
 <body>
 <div class="topnav">
   <a class="active" href="index.php">Home</a>
   <a href="contact.php">Contact</a>
   <a href="upcoming-races.php">Upcoming Races</a>
-  <a href="profile.php">Profile</a>
+  <a href="profile.php" class="style-link">Profile</a>
 </div>
 
 <div style="padding-left:16px">

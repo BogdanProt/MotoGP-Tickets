@@ -54,13 +54,13 @@ if (isset($_GET['delete_race'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="style-admin.css">
+    <link rel="stylesheet" href="style-adm.css">
 </head>
 <body>
 
   <div class="topnav">
     <a class ="active" href="admin-panel.php">Dashboard</a>
-    <a href="admin-profile.php">Profile</a>
+    <a href="admin-profile.php" class="style-link">Profile</a>
   </div>
 
     <h1>Dashboard</h1>
@@ -87,7 +87,7 @@ if (isset($_GET['delete_race'])) {
         $result = $conn->query("SELECT * FROM race");
 
         while ($row = $result->fetch_assoc()) {
-            echo "{$row['name']} - Location: {$row['location']} - Price: {$row['price']} - Date: {$row['date']} <a href='?delete_race={$row['id']}'>Delete</a>";
+            echo "<li class='race-item'>{$row['name']} - Location: {$row['location']} - Price: {$row['price']} - Date: {$row['date']} <a href='?delete_race={$row['id']}'>Delete</a></li>";
         }
         ?>
     </ul>
