@@ -83,10 +83,10 @@ if(isset($_POST['export_pdf'])) {
          if(mysqli_num_rows($select_races) > 0){
             while($row = mysqli_fetch_assoc($select_races)){
                echo "<div class='race'>";
-               echo "<h3 style='color:white;'>" . $row['name'] . "</h3>"; // Asigură-te că stilul CSS este valid
+               echo "<h3 style='color:white;'>" . $row['name'] . "</h3>"; 
                echo "<p>Locatie: " . $row['location'] . "</p>";
                echo "<p>Data: " . $row['date'] . "</p>";
-               echo "<p>Numar de bilete: " . $row['no_tickets'] . "</p>"; // Afișează numărul de bilete
+               echo "<p>Numar de bilete: " . $row['no_tickets'] . "</p>";
                echo "</div>";
             }
          } else {
