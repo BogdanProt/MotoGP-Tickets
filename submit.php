@@ -7,12 +7,12 @@ require '../vendor/autoload.php';
 ob_start();
 include 'config.php';
 
-$siteKey = '6Lf8FC8pAAAAAHvKztxI1vMKNLIOPy03zyrlv303';
-$secretKey = '6Lf8FC8pAAAAACQ4ncwx-Fx-2gt9_l6fW1P3_jDl';
+$siteKey = 'CENSORED';
+$secretKey = '6Lf8FC8pAAAAACQ4ncwx-Fx-CENSORED';
 
-$toEmail = 'kepspb@yahoo.com';
+$toEmail = 'CENSORED';
 $fromName = 'MotoGP Tickets';
-$formEmail = 'keps_bp@yahoo.com';
+$formEmail = 'CENSORED';
 
 $postData = $statusMsg = $valErr = '';
 $status = 'error';
@@ -55,13 +55,13 @@ if (isset($_POST['submit'])) {
                     $mail->isSMTP();                                       
                     $mail->Host = 'smtp.gmail.com';                       
                     $mail->SMTPAuth = true;                               
-                    $mail->Username = 'bprotopopescu09@gmail.com'; 
-                    $mail->Password = 'fxlc tcmm bjqi pbwa'; 
+                    $mail->Username = 'CENSORED'; 
+                    $mail->Password = 'CENSORED'; 
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                             
                     $mail->Port = 587;                                      
 
-                    $mail->setFrom('bprotopopescu09@gmail.com', 'MotoGP Tickets');
-                    $mail->addAddress('kepspb@yahoo.com'); 
+                    $mail->setFrom('CENSORED', 'MotoGP Tickets');
+                    $mail->addAddress('CENSORED'); 
 
                     // Continut e-mail
                     $mail->isHTML(true);                                   
