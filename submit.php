@@ -1,12 +1,18 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php';
+
 ob_start();
+include 'config.php';
 
-$siteKey = 'HIDDEN';
-$secretKey = 'HIDDEN';
+$siteKey = '6Lf8FC8pAAAAAHvKztxI1vMKNLIOPy03zyrlv303';
+$secretKey = '6Lf8FC8pAAAAACQ4ncwx-Fx-2gt9_l6fW1P3_jDl';
 
-$toEmail = 'HIDDEN';
+$toEmail = 'kepspb@yahoo.com';
 $fromName = 'MotoGP Tickets';
-$formEmail = 'HIDDEN';
+$formEmail = 'keps_bp@yahoo.com';
 
 $postData = $statusMsg = $valErr = '';
 $status = 'error';
@@ -43,26 +49,36 @@ if (isset($_POST['submit'])) {
             $responseData = json_decode($verifyResponse);
 
             if ($responseData->success) {
-                $subject = 'New contact request submitted';
-                $htmlContent = "
-                <h2>Contact Request Details</h2>
-                <p><b>Name: </b>".$name."</p>
-                <p><b>Email: </b>".$email."</p>
-                <p><b>Subject: </b>".$subject."</p>
-                <p><b>Message: </b>".$message."</p>
-                ";
+                $mail = new PHPMailer(true);
 
-                $headers = "MIME-Version: 1.0" . "\r\n";
-                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                try {
+                    $mail->isSMTP();                                       
+                    $mail->Host = 'smtp.gmail.com';                       
+                    $mail->SMTPAuth = true;                               
+                    $mail->Username = 'bprotopopescu09@gmail.com'; 
+                    $mail->Password = 'fxlc tcmm bjqi pbwa'; 
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                             
+                    $mail->Port = 587;                                      
 
-                $headers .= 'From:' . $fromName . ' <' .$formEmail .'>' . "\r\n";
+                    $mail->setFrom('bprotopopescu09@gmail.com', 'MotoGP Tickets');
+                    $mail->addAddress('kepspb@yahoo.com'); 
 
-                //mail($toEmail, $subject, $htmlContent, $headers);
-                //echo "Mail Sent.";
+                    // Continut e-mail
+                    $mail->isHTML(true);                                   
+                    $mail->Subject = 'New contact request submitted';
+                    $mail->Body    = "
+                        <h2>Contact Request Details</h2>
+                        <p><b>Name: </b>".$name."</p>
+                        <p><b>Email: </b>".$email."</p>
+                        <p><b>Subject: </b>".$subject."</p>
+                        <p><b>Message: </b>".$message."</p>
+                    ";
 
-                $status = 'success';
-                $statusMsg = 'Thank you! Your contact request has submitted successfully, we will get back to you soon.';
-                $postData = '';
+                    $mail->send();
+                    $statusMsg = 'Thank you! Your contact request has been submitted successfully.';
+                } catch (Exception $e) {
+                    $statusMsg = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                }
             } else {
                 $statusMsg = 'Robot verification failed, please try again.';
             }

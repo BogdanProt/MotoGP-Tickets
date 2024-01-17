@@ -31,9 +31,19 @@ if(isset($_GET['logout'])){
   <a href="profile.php" class="style-link">Profile</a>
 </div>
 
-<div style="padding-left:16px">
-  <h2>Home</h2>
+<div class="title">
+  <div id="scroll-text">
+    <h1>Grand Prix Motorcycle Racing is back!</h1>
+    <h1>Grand Prix Motorcycle Racing is back!</h1>
+    <h1>Grand Prix Motorcycle Racing is back!</h1>
+    <h1>Grand Prix Motorcycle Racing is back!</h1>
+    <h1>Grand Prix Motorcycle Racing is back!</h1>
+  </div>
 </div>
-
+<div class="container">
+  <div id="c-video">
+    <video class="videoprincipal" src="media/MotoGPvid.mp4" controls></video>
+  </div>
+</div>
 </body>
 </html>
